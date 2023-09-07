@@ -31,5 +31,5 @@ public class ShipScript : MonoBehaviour
             transform.position = new Vector3(boundary, dir.y, dir.z);
         }
     }
-    
+    //Pisichki sisichki popochki
 }
