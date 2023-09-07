@@ -8,7 +8,7 @@ public class ShipScript : MonoBehaviour
 {
     public float speed;
     private Vector3 dir;
-    
+    public float boundary;
     
     void Start()
     {
@@ -19,8 +19,17 @@ public class ShipScript : MonoBehaviour
     
     void Update()
     {
-        Vector2 vector2 = new Vector2(Input.GetAxis("Horizontal") , 0 )*speed;
-        transform.Translate(vector2, Space.Self);
+        dir.x += Input.GetAxis("Horizontal") * speed;
+        transform.position = dir;
+        if (dir.x < -boundary)
+        {
+            transform.position = new Vector3(-boundary, dir.y, dir.z);
+        }
+
+        if (dir.x > boundary)
+        {
+            transform.position = new Vector3(boundary, dir.y, dir.z);
+        }
     }
     
 }
