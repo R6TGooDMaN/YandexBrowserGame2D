@@ -4,24 +4,37 @@ using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
-    private bool ballIsActive;
-    private Vector3 ballPosition;
+    private float deltaX;
     private Vector2 ballInitialForce;
     private Rigidbody2D rg;
     public GameObject playerObj;
     
     void Start()
     {
-        ballInitialForce = new Vector2(100.0f, 300.0f);
+       /* ballInitialForce = new Vector2(100.0f, 300.0f);
         ballIsActive = false;
-        ballPosition = transform.position;
+        ballPosition = transform.position;*/
         rg = GetComponent<Rigidbody2D>();
+        playerObj = GameObject.FindGameObjectWithTag("Test");
+        deltaX = transform.position.x;
     }
 
     
     void Update()
     {
-        if (Input.GetButtonDown("Jump") == true)
+        if (rg.isKinematic)
+            if (Input.GetButtonDown("Fire1"))
+            {
+                rg.isKinematic = false;
+                rg.AddForce(ballInitialForce);
+            }
+            else
+            {
+                var pos = transform.position;
+                pos.x = playerObj.transform.position.x + deltaX;
+                transform.position = pos;
+            }
+       /* if (Input.GetButtonDown("Jump") == true)
         {
             if (!ballIsActive)
             {
@@ -34,6 +47,6 @@ public class BallScript : MonoBehaviour
                 ballPosition.x = playerObj.transform.position.x;
                 transform.position = ballPosition;
             }
-        }
+        }*/
     }
 }

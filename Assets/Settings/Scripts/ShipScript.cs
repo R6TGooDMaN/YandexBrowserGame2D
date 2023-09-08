@@ -13,24 +13,29 @@ public class ShipScript : MonoBehaviour
     
     void Start()
     {
-        dir = gameObject.transform.position;
-        
+        Cursor.visible = false;
+        //dir = gameObject.transform.position;
+
     }
     
     
     void Update()
     {
-        dir.x += Input.GetAxis("Horizontal") * speed*Time.deltaTime;
-        transform.position = dir;
-        if (dir.x < -boundary)
-        {
-            transform.position = new Vector3(-boundary, dir.y, dir.z);
-        }
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        var pos = transform.position;
+        pos.x = mousePos.x;
+        transform.position = pos;
+        /* dir.x += Input.GetAxis("Horizontal") * speed*Time.deltaTime;
+         transform.position = dir;
+         if (dir.x < -boundary)
+         {
+             transform.position = new Vector3(-boundary, dir.y, dir.z);
+         }
 
-        if (dir.x > boundary)
-        {
-            transform.position = new Vector3(boundary, dir.y, dir.z);
-        }
+         if (dir.x > boundary)
+         {
+             transform.position = new Vector3(boundary, dir.y, dir.z);
+         }*/
     }
     
 }
