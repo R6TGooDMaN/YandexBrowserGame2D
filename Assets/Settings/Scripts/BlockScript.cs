@@ -17,11 +17,8 @@ public class BlockScript : MonoBehaviour
        
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.tag == "Ball")
-        {
-            Destroy(gameObject);
-        }    
+        Destroy(gameObject);
     }
 }

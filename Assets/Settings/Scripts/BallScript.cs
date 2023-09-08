@@ -37,6 +37,7 @@ public class BallScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.tag=="Floor")
         Destroy(gameObject);
     }
 }
