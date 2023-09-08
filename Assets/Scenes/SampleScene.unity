@@ -570,7 +570,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 1469664682}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Test
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1205,7 +1205,7 @@ GameObject:
   - component: {fileID: 1899382451}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Test
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1222,6 +1222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fec1319512e454d81dd736c90e812d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballInitialForce: {x: 100, y: 300}
   playerObj: {fileID: 1469664676}
 --- !u!50 &1899382452
 Rigidbody2D:

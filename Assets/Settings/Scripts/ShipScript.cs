@@ -26,16 +26,16 @@ public class ShipScript : MonoBehaviour
         pos.x = mousePos.x;
         transform.position = pos;
         /* dir.x += Input.GetAxis("Horizontal") * speed*Time.deltaTime;
-         transform.position = dir;
-         if (dir.x < -boundary)
+         transform.position = dir;*/
+         if (pos.x < -boundary)
          {
-             transform.position = new Vector3(-boundary, dir.y, dir.z);
+             transform.position = new Vector3(-boundary, pos.y, pos.z);
          }
 
-         if (dir.x > boundary)
+         if (pos.x > boundary)
          {
-             transform.position = new Vector3(boundary, dir.y, dir.z);
-         }*/
+             transform.position = new Vector3(boundary, pos.y, pos.z);
+         }
     }
     
 }
