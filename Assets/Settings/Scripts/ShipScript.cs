@@ -10,6 +10,7 @@ public class ShipScript : MonoBehaviour
     private Vector3 dir;
     public float boundary;
     
+    
     void Start()
     {
         dir = gameObject.transform.position;
@@ -19,7 +20,7 @@ public class ShipScript : MonoBehaviour
     
     void Update()
     {
-        dir.x += Input.GetAxis("Horizontal") * speed;
+        dir.x += Input.GetAxis("Horizontal") * speed*Time.deltaTime;
         transform.position = dir;
         if (dir.x < -boundary)
         {
