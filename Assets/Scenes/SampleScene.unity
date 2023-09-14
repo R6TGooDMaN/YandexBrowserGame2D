@@ -901,7 +901,7 @@ GameObject:
   - component: {fileID: 1469664682}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Test
+  m_TagString: Ship
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1032,10 +1032,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   boundary: 6.6
-  level: 15
+  level: 30
   ballVelocityMult: 0.02
   Block: {fileID: 7586505060777452524, guid: 0640d7b69e026bc438c0b7a73988f78b, type: 3}
   Ball: {fileID: 3671283994444252369, guid: 9a45c979c04edb14281163e1a34ce202, type: 3}
+  gameData: {fileID: 11400000, guid: 4e325fa62bd378c41a6d5a05463a9484, type: 2}
 --- !u!50 &1469664682
 Rigidbody2D:
   serializedVersion: 4

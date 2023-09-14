@@ -14,7 +14,7 @@ public class BallScript : MonoBehaviour
     {
        
         rg = GetComponent<Rigidbody2D>();
-        playerObj = GameObject.FindGameObjectWithTag("Test");
+        playerObj = GameObject.FindGameObjectWithTag("Ship");
         deltaX = transform.position.x;
     }
 
@@ -37,7 +37,7 @@ public class BallScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag=="Floor")
-        Destroy(gameObject);
+        if (other.tag=="Floor") Destroy(gameObject);
+        playerObj.GetComponent<ShipScript>().BallDestroyed();
     }
 }

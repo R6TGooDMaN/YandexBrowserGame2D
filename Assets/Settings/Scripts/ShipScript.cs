@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class ShipScript : MonoBehaviour
@@ -19,6 +20,8 @@ public class ShipScript : MonoBehaviour
     public GameObject Ball;
     private static Collider2D[] colliders = new Collider2D[50];
     private static ContactFilter2D contactFilter = new ContactFilter2D();
+    public GameDataScript gameData;
+    private static bool gameStarted = false;
 
     void CreateBlocks(GameObject prefab, float xMax, float yMax, int count, int maxCount)
     {
@@ -39,6 +42,7 @@ public class ShipScript : MonoBehaviour
     void CreateBalls()
     {
         int count = 2;
+        if (gameData.balls == 1) count = 1;
         for (int i = 0; i < count; i++)
         {
             var obj = Instantiate(Ball);
@@ -46,6 +50,40 @@ public class ShipScript : MonoBehaviour
             balll.ballInitialForce += new Vector2(10 * i, 0);
             balll.ballInitialForce *= 1 + level * ballVelocityMult;
         }
+    }
+    public void BallDestroyed()
+    {
+        gameData.balls--;
+        StartCoroutine(BallDestroyedCoroutine());
+    }
+
+    IEnumerator BallDestroyedCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (GameObject.FindGameObjectsWithTag("Ball").Length==0)
+            if (gameData.balls>0)
+            CreateBalls();
+            else
+            {
+                gameData.Reset();
+                SceneManager.LoadScene("SampleScene");
+            }
+    }
+
+    IEnumerator BlockDestroyedCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (GameObject.FindGameObjectsWithTag("Block").Length == 0)
+        {
+            gameData.Reset();
+            SceneManager.LoadScene("SampleScene");
+        }
+    }
+
+    public void BlockDestroyed(int points)
+    {
+        gameData.points += points;
+        StartCoroutine(BlockDestroyedCoroutine());
     }
     void StartLevel()
     {
@@ -57,11 +95,20 @@ public class ShipScript : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        if (!gameStarted)
+        {
+            gameStarted = true;
+            if (gameData.resetOnStart) gameData.Reset();
+        }
         StartLevel();
 
     }
-    
-    
+
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(5,4,Screen.width - 10,100), string.Format("<color=red><size=30>Score <b>{0}</b></size></color>",gameData.points));
+    }
+
     void Update()
     {
         var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -79,5 +126,7 @@ public class ShipScript : MonoBehaviour
              transform.position = new Vector3(boundary, pos.y, pos.z);
          }
     }
+
+   
     
 }
