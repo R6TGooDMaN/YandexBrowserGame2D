@@ -15,15 +15,17 @@ public class ShipScript : MonoBehaviour
     [Range(1,maxLevel)]
     public int level = 1;
 
+    private int[] chance = new[] { 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4 }; 
     public float ballVelocityMult = 0.02f;
-    public GameObject Block;
     public GameObject Ball;
     private static Collider2D[] colliders = new Collider2D[50];
     private static ContactFilter2D contactFilter = new ContactFilter2D();
     public GameDataScript gameData;
     private static bool gameStarted = false;
+    public List<GameObject> BlocksList;
+    
 
-    void CreateBlocks(GameObject prefab, float xMax, float yMax, int count, int maxCount)
+    void CreateBlocks( float xMax, float yMax, int count, int maxCount)
     {
         if (count > maxCount)
             count = maxCount;
@@ -31,14 +33,14 @@ public class ShipScript : MonoBehaviour
         for (int k = 0; k < 20; k++)
         {
              
-           var obj = Instantiate(prefab, new Vector3((Random.value * 2 - 1) * xMax, Random.value * yMax, 0),
+           var obj = Instantiate(BlocksList[chance[Random.Range(0,chance.Length-1)]], new Vector3((Random.value * 2 - 1) * xMax, Random.value * yMax, 0),
                 Quaternion.identity);
-           if (obj.GetComponent<Collider2D>().OverlapCollider(contactFilter.NoFilter(), colliders) == 0)
+           if (obj.GetComponent<Collider2D>().OverlapCollider(contactFilter.NoFilter(),colliders) == 0)
                break;
            Destroy(obj);
         }
     }
-
+    
     void CreateBalls()
     {
         int count = 2;
@@ -89,7 +91,7 @@ public class ShipScript : MonoBehaviour
     {
         var yMax = Camera.main.orthographicSize * 0.8f;
         var xMax = Camera.main.orthographicSize * Camera.main.aspect * 0.85f;
-        CreateBlocks(Block,xMax,yMax,level,60);
+        CreateBlocks(xMax,yMax,level,60);
         CreateBalls();
     }
     void Start()
