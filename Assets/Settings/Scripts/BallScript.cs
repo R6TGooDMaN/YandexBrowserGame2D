@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
+    
     private float deltaX;
     public Vector2 ballInitialForce;
     private Rigidbody2D rg;
-    public GameObject playerObj;
-    
+    private GameObject playerObj;
+   
     void Start()
     {
        
