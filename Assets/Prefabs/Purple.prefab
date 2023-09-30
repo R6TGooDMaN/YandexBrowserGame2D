@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6284696146865982378}
   - component: {fileID: 2591610499528717799}
   - component: {fileID: 4455390950378618771}
+  - component: {fileID: 964635928957316828}
   m_Layer: 0
   m_Name: Purple
   m_TagString: Block
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 26d5c748c7120bc4ab9930289e833f33, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f0485874a2458184287143ca3c0ddc08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.005517974, y: -0.03420815}
+  m_Offset: {x: 0.005517974, y: 0.0003521144}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -173,3 +174,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   type: 4
+--- !u!95 &964635928957316828
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5124046039495392161}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a55062302f6deb647b5931fe9adb36ef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
