@@ -1383,6 +1383,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+
 --- !u!1001 &1640424840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1783,6 +1784,7 @@ SceneRoots:
   - {fileID: 2058233376}
   - {fileID: 781027475}
   - {fileID: 1344219501}
+
   - {fileID: 1640424840}
   - {fileID: 172551157}
   - {fileID: 1421042900}

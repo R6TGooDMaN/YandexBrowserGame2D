@@ -48,6 +48,33 @@ public class BlockScript : MonoBehaviour
                     anim.Play("DestroyGold",0,1f);
                 }
             }
+            
+            if (type == Typeblock.Red)
+            {
+                anim.SetBool("DestroyBool",true);
+                if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >=1f)
+                {
+                    anim.Play("DestroyRed",0,1f);
+                }
+            }
+            
+            if (type == Typeblock.Green)
+            {
+                anim.SetBool("DestroyBool",true);
+                if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >=1f)
+                {
+                    anim.Play("DestroyGreen",0,1f);
+                }
+            }
+            
+            if (type == Typeblock.Purple)
+            {
+                anim.SetBool("DestroyBool",true);
+                if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >=1f)
+                {
+                    anim.Play("DestroyPurple",0,1f);
+                }
+            }
         }
         else if (Health == 0)
         {
