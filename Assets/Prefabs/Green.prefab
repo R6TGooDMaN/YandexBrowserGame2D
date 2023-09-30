@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -786702210247454021}
   - component: {fileID: -6339165570314158659}
   - component: {fileID: -2819518218908475362}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Green
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -173,3 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   type: 1
+  funt: {fileID: 0}

@@ -23,6 +23,7 @@ public class ShipScript : MonoBehaviour
     public GameDataScript gameData;
     private static bool gameStarted = false;
     public List<GameObject> BlocksList;
+    private bool check = false;
     
 
     void CreateBlocks( float xMax, float yMax, int count, int maxCount)
@@ -41,11 +42,9 @@ public class ShipScript : MonoBehaviour
         }
     }
     
-    void CreateBalls()
+    void CreateBalls(int b)
     {
-        int count = 2;
-        if (gameData.balls == 1) count = 1;
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < b; i++)
         {
             var obj = Instantiate(Ball);
             var balll = obj.GetComponent<BallScript>();
@@ -63,8 +62,8 @@ public class ShipScript : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         if (GameObject.FindGameObjectsWithTag("Ball").Length==0)
-            if (gameData.balls>0)
-            CreateBalls();
+            if (gameData.balls==0)
+            CreateBalls(1);
             else
             {
                 gameData.Reset();
@@ -92,7 +91,7 @@ public class ShipScript : MonoBehaviour
         var yMax = Camera.main.orthographicSize * 0.8f;
         var xMax = Camera.main.orthographicSize * Camera.main.aspect * 0.85f;
         CreateBlocks(xMax,yMax,level,60);
-        CreateBalls();
+        CreateBalls(1);
     }
     void Start()
     {
@@ -108,7 +107,7 @@ public class ShipScript : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.Label(new Rect(5,4,Screen.width - 10,100), string.Format("<color=red><size=30>Score <b>{0}</b></size></color>",gameData.points));
+        GUI.Label(new Rect(5,4,Screen.width - 10,100), string.Format("<color=red><size=30>Score <b>{0}</b>Money <b>{1}</b></size></color>",gameData.points,gameData.money));
     }
 
     void Update()
@@ -117,18 +116,43 @@ public class ShipScript : MonoBehaviour
         var pos = transform.position;
         pos.x = mousePos.x;
         transform.position = pos;
-       
          if (pos.x < -boundary)
          {
              transform.position = new Vector3(-boundary, pos.y, pos.z);
+             Debug.Log("pupka");
          }
 
          if (pos.x > boundary)
          {
              transform.position = new Vector3(boundary, pos.y, pos.z);
+             Debug.Log("pupka");
          }
     }
+    public void lengthPlus()
+    {
+        var oldscale = transform.localScale;
+        Vector3 scale = new Vector3(oldscale.x+1,oldscale.y,oldscale.y);
+        gameObject.transform.localScale = scale;
+        boundary=boundary-(float)0.5;
+    }
 
-   
-    
+    public void Magnet()
+    {
+        
+    }
+
+    public void Plus1Ball()
+    {
+        CreateBalls(1);
+    }
+
+    public void Plus2Ball()
+    {
+        CreateBalls(2);
+    }
+
+    public void Plus5Ball()
+    {
+        CreateBalls(5);
+    }
 }

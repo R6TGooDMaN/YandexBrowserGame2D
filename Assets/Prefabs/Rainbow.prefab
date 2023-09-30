@@ -173,3 +173,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   type: 3
+  funt: {fileID: 0}
+  BonusList:
+  - {fileID: 907532724093992687, guid: 603d119d15557d94ba101e6888646bed, type: 3}
+  - {fileID: 8917790990635459190, guid: c389e7f1028d2634d8de2115a6412bf9, type: 3}
+  - {fileID: 4447517344089438771, guid: 376806801fd47284eb0bc9bc81ac5d24, type: 3}
+  - {fileID: 2099454929226215001, guid: 48438266da5b3df4aa9a0401d1d44c7e, type: 3}
+  - {fileID: 8199892056017779835, guid: 5f1af6234f5e7e84493c5a86c790f908, type: 3}
+  - {fileID: 106436156450436164, guid: 5281a98c67478e041a0ca7239020c7f7, type: 3}
+  - {fileID: 5641290764545403978, guid: 0d3f0644fad83244baf8b34e7168d10e, type: 3}

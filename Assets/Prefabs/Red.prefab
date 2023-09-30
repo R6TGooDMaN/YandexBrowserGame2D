@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -5999503368457199968}
   - component: {fileID: -6242996422991168648}
   - component: {fileID: 9118436368336396521}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Red
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -173,3 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   type: 2
+  funt: {fileID: 0}
