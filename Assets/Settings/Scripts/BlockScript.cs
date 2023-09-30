@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BlockScript : MonoBehaviour
 {
@@ -11,7 +12,9 @@ public class BlockScript : MonoBehaviour
     private Animator anim;
     private int Health = 2 ;
     public Typeblock type;
-
+    public GameObject funt;
+    public List<GameObject> BonusList;
+    private int[] chance = new[] { 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 3, 4, 4, 4, 4 }; 
     public enum Typeblock
     {
         Gold,
@@ -32,7 +35,6 @@ public class BlockScript : MonoBehaviour
     {
        
     }
-
     void OnCollisionEnter2D(Collision2D other)
     {
         Health--;
@@ -73,14 +75,20 @@ public class BlockScript : MonoBehaviour
                     anim.Play("DestroyPurple",0,1f);
                 }
             }
-            
         }
         else if (Health == 0)
         {
+            if (type == Typeblock.Gold)
+            {
+                Instantiate(funt, transform.position, transform.rotation);
+            }
+            if (type == Typeblock.Rainbow)
+            {
+                Instantiate(BonusList[chance[Random.Range(0,chance.Length-1)]],transform.position,transform.rotation);
+            }
             Destroy(gameObject);
             points++;
             shipScript.BlockDestroyed(points); 
         }
-
     }
 }

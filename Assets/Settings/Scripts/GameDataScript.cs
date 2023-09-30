@@ -10,6 +10,7 @@ public class GameDataScript : ScriptableObject
     public int balls = 1;
 
     public int points = 0;
+    public int money = 0;
    
    
     void Start()
@@ -19,7 +20,7 @@ public class GameDataScript : ScriptableObject
 
     public void Reset()
     {
-        balls = 2;
+        balls = 0;
         points = 0;
     }
 
