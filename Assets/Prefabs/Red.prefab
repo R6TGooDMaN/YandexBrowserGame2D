@@ -15,8 +15,6 @@ GameObject:
   - component: {fileID: 9118436368336396521}
   - component: {fileID: -390076847606998651}
   m_Layer: 0
-=======
-  m_Layer: 7
   m_Name: Red
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -197,5 +195,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-=======
-  funt: {fileID: 0}

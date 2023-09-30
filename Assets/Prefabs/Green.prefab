@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -6339165570314158659}
   - component: {fileID: -2819518218908475362}
   - component: {fileID: -5272016272916242457}
-  m_Layer: 0
   m_Layer: 7
   m_Name: Green
   m_TagString: Block
@@ -175,6 +174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: 0
   type: 1
+  funt: {fileID: 0}
+  BonusList: []
 --- !u!95 &-5272016272916242457
 Animator:
   serializedVersion: 5
@@ -196,4 +197,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-  funt: {fileID: 0}
